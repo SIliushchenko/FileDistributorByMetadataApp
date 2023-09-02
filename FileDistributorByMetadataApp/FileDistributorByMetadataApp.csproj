@@ -1,0 +1,75 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net7.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="NLog.config" />
+    <None Remove="Resources\blue-exit-icon-25.jpg" />
+    <None Remove="Resources\browse.Active.jpg" />
+    <None Remove="Resources\browse.jpg" />
+    <None Remove="Resources\Browse.png" />
+    <None Remove="Resources\exit-button-icon-2.jpg" />
+    <None Remove="Resources\favicon.jpg" />
+    <None Remove="Resources\file-explorer-icon-22.jpg" />
+    <None Remove="Resources\file-explorer-icon-25.jpg" />
+    <None Remove="Views\istockphoto-1133511685-612x612.jpg" />
+    <None Remove="Views\istockphoto-640992824-612x612.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="7.1.0" />
+    <PackageReference Include="Microsoft-WindowsAPICodePack-Shell" Version="1.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FileDistributorByMetadataApp.Common\FileDistributorByMetadataApp.Common.csproj" />
+    <ProjectReference Include="..\FileDistributorByMetadataApp.Interfaces\FileDistributorByMetadataApp.Interfaces.csproj" />
+    <ProjectReference Include="..\FileDistributorByMetadataApp.Services\FileDistributorByMetadataApp.Services.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Browse.png" />
+    <Resource Include="Resources\exit-button-icon-2.jpg" />
+    <Resource Include="Resources\favicon.jpg" />
+    <Resource Include="Resources\file-explorer-icon-22.jpg" />
+    <Resource Include="Resources\file-explorer-icon-25.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Themes\Brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Update="Themes\DataTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+
+</Project>

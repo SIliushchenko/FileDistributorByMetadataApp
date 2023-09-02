@@ -1,0 +1,13 @@
+﻿<Window x:Class="FileDistributorByMetadataApp.ShellWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:FileDistributorByMetadataApp.ViewModels"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance viewModels:ShellViewModel}"
+        Title="File distributor by metadata" Height="370" Width="833" Icon="/Resources/favicon.jpg" ResizeMode="CanMinimize">
+    <Grid Background="{StaticResource MainBackground}">
+        <ContentControl Content="{Binding Content}" Height="330" Width="833" />
+    </Grid>
+</Window>

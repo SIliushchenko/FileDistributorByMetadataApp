@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34003.232
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileDistributorByMetadataApp.Services", "FileDistributorByMetadataApp.Services\FileDistributorByMetadataApp.Services.csproj", "{72E809D1-4971-441C-8EA4-D77C58883AFF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileDistributorByMetadataApp.Common", "FileDistributorByMetadataApp.Common\FileDistributorByMetadataApp.Common.csproj", "{06647368-7F4D-417D-A9FA-76B809CCAB23}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileDistributorByMetadataApp.Interfaces", "FileDistributorByMetadataApp.Interfaces\FileDistributorByMetadataApp.Interfaces.csproj", "{6D1E4FCA-40E9-4147-9AB1-5ED91BE1A96F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileDistributorByMetadataApp", "FileDistributorByMetadataApp\FileDistributorByMetadataApp.csproj", "{DA0A553C-7C41-4AF4-A5A8-2DC6467E9044}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileDistributorByMetadataApp.UnitTests", "FileDistributorByMetadataApp.UnitTests\FileDistributorByMetadataApp.UnitTests.csproj", "{697C3A49-9A1C-4EC0-9D32-2F389BD8F4E5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72E809D1-4971-441C-8EA4-D77C58883AFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72E809D1-4971-441C-8EA4-D77C58883AFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72E809D1-4971-441C-8EA4-D77C58883AFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72E809D1-4971-441C-8EA4-D77C58883AFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06647368-7F4D-417D-A9FA-76B809CCAB23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06647368-7F4D-417D-A9FA-76B809CCAB23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06647368-7F4D-417D-A9FA-76B809CCAB23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06647368-7F4D-417D-A9FA-76B809CCAB23}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D1E4FCA-40E9-4147-9AB1-5ED91BE1A96F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D1E4FCA-40E9-4147-9AB1-5ED91BE1A96F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D1E4FCA-40E9-4147-9AB1-5ED91BE1A96F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D1E4FCA-40E9-4147-9AB1-5ED91BE1A96F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA0A553C-7C41-4AF4-A5A8-2DC6467E9044}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA0A553C-7C41-4AF4-A5A8-2DC6467E9044}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA0A553C-7C41-4AF4-A5A8-2DC6467E9044}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA0A553C-7C41-4AF4-A5A8-2DC6467E9044}.Release|Any CPU.Build.0 = Release|Any CPU
+		{697C3A49-9A1C-4EC0-9D32-2F389BD8F4E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{697C3A49-9A1C-4EC0-9D32-2F389BD8F4E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{697C3A49-9A1C-4EC0-9D32-2F389BD8F4E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{697C3A49-9A1C-4EC0-9D32-2F389BD8F4E5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {731049C1-04C3-4CFB-A345-36D53F136460}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		XamlRadialProgressBar.Shared\XamlRadialProgressBar.Shared.projitems*{06647368-7f4d-417d-a9fa-76b809ccab23}*SharedItemsImports = 5
+	EndGlobalSection
+EndGlobal
