@@ -16,15 +16,17 @@ namespace FileDistributorByMetadataApp.Services.Services
         private const int DividerForSeconds = 3600;
         private const int RetryCount = 3;
         private readonly AsyncRetryPolicy<LocationResponse> _asyncRetryPolicy;
+        private readonly ISeasonService _seasonService;
         private static readonly Logger Logger = LogManager.GetCurrentClassLogger();
         private static readonly HttpClient HttpClient = new()
         {
             BaseAddress = new Uri(@"https://nominatim.openstreetmap.org/")
         };
-        private static readonly List<string> _oldFolderPaths = new();
+        private static readonly List<string> OldFolderPaths = new();
 
-        public FileDistributionService()
+        public FileDistributionService(ISeasonService seasonService)
         {
+            _seasonService = seasonService;
             var jitter = new Random();
             _asyncRetryPolicy = Policy<LocationResponse>
                 .Handle<HttpRequestException>()
@@ -56,7 +58,7 @@ namespace FileDistributorByMetadataApp.Services.Services
             }
 
             DistributeFiles(fileData, destinationFolderPath, cancellationToken);
-            DeleteOldFolders(_oldFolderPaths);
+            DeleteOldFolders(OldFolderPaths);
         }
 
         private static void DistributeFiles(IEnumerable<FileData> fileData, string destinationFolderPath,
@@ -72,7 +74,8 @@ namespace FileDistributorByMetadataApp.Services.Services
                 x.City,
                 x.Country,
                 x.Year,
-                x.Village
+                x.Village,
+                x.Season
             }).Select(g => new
             {
                 GroupedData = g.Key,
@@ -90,7 +93,8 @@ namespace FileDistributorByMetadataApp.Services.Services
                     ? grpFileMetadata.GroupedData.Village : grpFileMetadata.GroupedData.City)} ");
                 if (grpFileMetadata.GroupedData.Year != DateTime.MinValue.Year)
                 {
-                    directoryNameBuilder.Append($"{grpFileMetadata.GroupedData.Year}");
+                    directoryNameBuilder.Append($"{grpFileMetadata.GroupedData.Year} ");
+                    directoryNameBuilder.Append($"{grpFileMetadata.GroupedData.Season}");
                 }
                 var nerDirectoryInfo = Directory.CreateDirectory(directoryNameBuilder.ToString());
                 directoryNameBuilder.Clear();
@@ -120,7 +124,7 @@ namespace FileDistributorByMetadataApp.Services.Services
 
                 foreach (var subDirectory in Directory.GetDirectories(directoryPath))
                 {
-                    _oldFolderPaths.Add(subDirectory);
+                    OldFolderPaths.Add(subDirectory);
                     ProcessDirectory(subDirectory, filesPaths);
                 }
             }
@@ -153,7 +157,8 @@ namespace FileDistributorByMetadataApp.Services.Services
                     Village = locationResponse!.Address.Village,
                     City = locationResponse.Address.City,
                     Country = locationResponse.Address.Country,
-                    Year = fileMetadata.CreatedDateTime.Year
+                    Year = fileMetadata.CreatedDateTime.Year,
+                    Season = _seasonService.GetSeason(fileMetadata.CreatedDateTime, languageCode)
                 };
             }
         }

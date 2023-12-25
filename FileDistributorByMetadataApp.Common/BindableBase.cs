@@ -6,7 +6,7 @@ namespace FileDistributorByMetadataApp.Common
 {
     public class BindableBase : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler PropertyChanged = null!;
+        public event PropertyChangedEventHandler? PropertyChanged = null!;
 
         public void OnPropertyChanged<TProperty>(Expression<Func<TProperty>> property)
         {

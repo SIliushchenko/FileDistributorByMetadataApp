@@ -27,6 +27,7 @@ namespace FileDistributorByMetadataApp
         {
             var builder = new ContainerBuilder();
 
+            builder.RegisterType<SeasonService>().As<ISeasonService>();
             builder.RegisterType<FileDistributionService>().As<IFileDistributionService>();
             builder.RegisterType<FolderPathSelector>().As<IFolderPathSelector>();
             builder.RegisterType<ShellViewModel>().SingleInstance();
